@@ -27,15 +27,16 @@ class CustomizeCheckoutButton extends StatelessWidget {
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             color: background,
-            border:
-                const Border.fromBorderSide(BorderSide(color: Color(0xff34A853)))),
+            border: const Border.fromBorderSide(
+                BorderSide(color: Color(0xff34A853)))),
         child: Center(
           child: Text(
             title,
-            style: style ?? FontStyles.titlestyle.copyWith(
-                    fontSize: 22,
-                    color: Colors.black,
-                  ),
+            style: style ??
+                FontStyles.titlestyle.copyWith(
+                  fontSize: 22,
+                  color: Colors.black,
+                ),
           ),
         ),
       ),

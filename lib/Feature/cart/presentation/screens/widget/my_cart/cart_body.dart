@@ -52,8 +52,7 @@ class CartBody extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text('Total: ',
-                  style:
-                      TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
               Text('\$50.97', style: TextStyle(fontSize: 24)),
             ],
           ),

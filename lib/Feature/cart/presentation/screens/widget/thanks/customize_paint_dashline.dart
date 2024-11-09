@@ -13,10 +13,8 @@ class CustomizeDotLineWithTwoCircle extends StatelessWidget {
         right: 30,
         child: CustomPaint(
           painter: DrawDottedhorizontalline(),
-          
         ));
   }
-  
 }
 
 class DrawDottedhorizontalline extends CustomPainter {
@@ -43,5 +41,4 @@ class DrawDottedhorizontalline extends CustomPainter {
   bool shouldRepaint(CustomPainter oldDelegate) {
     return false;
   }
-  
 }
