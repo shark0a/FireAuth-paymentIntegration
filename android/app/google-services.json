@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "122668418549",
+    "project_id": "auth-test-1907",
+    "storage_bucket": "auth-test-1907.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:122668418549:android:27ee4a5984a54308f94cbc",
+        "android_client_info": {
+          "package_name": "com.example.authtest"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZrEOMNsg1hHXBmBY2oIZ0TeuA9MkhivM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
