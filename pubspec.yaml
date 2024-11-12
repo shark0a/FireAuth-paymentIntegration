@@ -50,3 +50,5 @@ flutter:
       fonts:
         - asset: lib\core\assets\Fonts\Poppins-Bold.ttf
         - asset: lib\core\assets\Fonts\Poppins-Medium.ttf
+flutter_intl:
+  enabled: true

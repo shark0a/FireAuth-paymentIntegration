@@ -1,12 +1,25 @@
+import 'package:authtest/Feature/cart/data/models/payment_intinet_input_model.dart';
+import 'package:authtest/Feature/cart/presentation/manger/payment_cubit.dart';
 import 'package:authtest/Feature/cart/presentation/screens/widget/customize_checkout_button.dart';
 import 'package:authtest/Feature/cart/presentation/screens/widget/payement_details/payment_methode.dart';
+import 'package:authtest/core/Routers/app_routers.dart';
+import 'package:authtest/core/errors/faliures.dart';
 import 'package:authtest/core/styles/font_styles.dart';
 import 'package:authtest/core/styles/fonts/font_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
-class PyamentButtomSheetBody extends StatelessWidget {
+class PyamentButtomSheetBody extends StatefulWidget {
   const PyamentButtomSheetBody({super.key});
 
+  @override
+  State<PyamentButtomSheetBody> createState() => _PyamentButtomSheetBodyState();
+}
+
+bool isLoading = false;
+
+class _PyamentButtomSheetBodyState extends State<PyamentButtomSheetBody> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -22,11 +35,35 @@ class PyamentButtomSheetBody extends StatelessWidget {
         const SizedBox(
           height: 30,
         ),
-        CustomizeCheckoutButton(
-            title: "Continue",
-            width: 200,
-            background: FontColors.checkOutButtonColor,
-            hight: 70),
+        BlocConsumer<PaymentCubit, PaymentState>(
+          listener: (context, state) {
+            if (state is PaymentLoading) {
+              isLoading = true;
+            } else if (state is PaymentSuccess) {
+              isLoading = false;
+              GoRouter.of(context).push(AppRouter.kThankYouScreen);
+            } else if (state is PaymentFaluire) {
+              Navigator.of(context).pop();
+              ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text(state.errMessage.toString())));
+              isLoading = false;
+            }
+          },
+          builder: (context, state) {
+            return CustomizeCheckoutButton(
+                isLoading: isLoading = false,
+                onTap: () {
+                  BlocProvider.of<PaymentCubit>(context).paymentMethod(
+                    paymentIntinetInputModel: PaymentIntinetInputModel(
+                        amount: '100', currency: 'USD'),
+                  );
+                },
+                title: "Continue",
+                width: 200,
+                background: FontColors.checkOutButtonColor,
+                hight: 70);
+          },
+        ),
         const SizedBox(
           height: 30,
         ),

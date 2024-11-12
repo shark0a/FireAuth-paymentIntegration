@@ -6,11 +6,13 @@ class CustomizeCheckoutButton extends StatelessWidget {
     super.key,
     required this.title,
     this.onTap,
+    this.isLoading = false,
     required this.width,
     required this.background,
     required this.hight,
     this.style,
   });
+  final isLoading;
   final String title;
   final double width;
   final double hight;
@@ -30,14 +32,16 @@ class CustomizeCheckoutButton extends StatelessWidget {
             border: const Border.fromBorderSide(
                 BorderSide(color: Color(0xff34A853)))),
         child: Center(
-          child: Text(
-            title,
-            style: style ??
-                FontStyles.titlestyle.copyWith(
-                  fontSize: 22,
-                  color: Colors.black,
+          child: isLoading
+              ? const CircularProgressIndicator()
+              : Text(
+                  title,
+                  style: style ??
+                      FontStyles.titlestyle.copyWith(
+                        fontSize: 22,
+                        color: Colors.black,
+                      ),
                 ),
-          ),
         ),
       ),
     );

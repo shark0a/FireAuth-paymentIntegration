@@ -2,6 +2,7 @@ import 'package:authtest/Feature/cart/data/models/payment_intent_model/payment_i
 import 'package:authtest/Feature/cart/data/models/payment_intinet_input_model.dart';
 import 'package:authtest/core/utils/api_service.dart';
 import 'package:authtest/core/utils/secret_keys.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 
 class StripeServices {
@@ -11,6 +12,7 @@ class StripeServices {
       PaymentIntinetInputModel paymentIntinetInputModel) async {
     var resposne = await apiService.post(
         url: url,
+        contentType: Headers.formUrlEncodedContentType,
         body: paymentIntinetInputModel.toJson(),
         token: SecretKeys.secret);
     var paymentintentModel = PaymentIntentModel.fromJson(resposne.data);

@@ -1,7 +1,10 @@
+import 'package:authtest/Feature/cart/presentation/manger/payment_cubit.dart';
+import 'package:authtest/Feature/cart/presentation/repo/checkout_repo_implement.dart';
 import 'package:authtest/Feature/cart/presentation/screens/widget/customize_checkout_button.dart';
 import 'package:authtest/Feature/cart/presentation/screens/widget/my_cart/order_info_item.dart';
 import 'package:authtest/Feature/cart/presentation/screens/widget/my_cart/pyament_buttom_sheet_body.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CartBody extends StatelessWidget {
   const CartBody({
@@ -69,7 +72,10 @@ class CartBody extends StatelessWidget {
               showModalBottomSheet(
                 context: context,
                 builder: (context) {
-                  return const PyamentButtomSheetBody();
+                  return BlocProvider(
+                    create: (context) => PaymentCubit(CheckoutRepoImplement()),
+                    child: PyamentButtomSheetBody(),
+                  );
                 },
               );
             },

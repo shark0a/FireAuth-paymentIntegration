@@ -83,7 +83,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
                 ontap: () async {
                   final authCubit = BlocProvider.of<AuthCubit>(context);
 
-                  if (authCubit.vCode?.trim() == otpCode.trim()) {
+                  if (authCubit.vCode == otpCode.trim()) {
                     // Future.delayed(const Duration(milliseconds: 100));
                     await GoRouter.of(context)
                         .pushReplacement(AppRouter.kCompletedScreen);
