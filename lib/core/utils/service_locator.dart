@@ -6,4 +6,3 @@ final getIt = GetIt.instance;
 void setupServiceLocator() {
   getIt.registerSingleton<AuthRepo>(AuthRepoImplement());
 }
-

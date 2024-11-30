@@ -40,7 +40,7 @@ class CustomizeCheckoutButton extends StatelessWidget {
               : Text(
                   title,
                   style: style ??
-                    const  TextStyle(
+                      const TextStyle(
                         fontSize: 22,
                         color: Colors.black,
                       ),

@@ -46,8 +46,10 @@ class PaymentBottomSheetBody extends StatelessWidget {
               isLoading: isLoading,
               onTap: () {
                 BlocProvider.of<PaymentCubit>(context).paymentMethod(
-                  paymentIntinetInputModel:
-                      PaymentIntinetInputModel(amount: '100', currency: 'USD'),
+                  paymentIntinetInputModel: PaymentIntinetInputModel(
+                      'cus_RJapgVS0iBK60T',
+                      amount: '100',
+                      currency: 'USD'),
                 );
               },
               title: "Continue",
