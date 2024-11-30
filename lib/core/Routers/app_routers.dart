@@ -4,6 +4,7 @@ import 'package:authtest/Feature/auth/presentation/screens/signup_screens.dart';
 import 'package:authtest/Feature/auth/presentation/screens/verification_screen.dart';
 import 'package:authtest/Feature/cart/presentation/screens/my_cart_screen.dart';
 import 'package:authtest/Feature/cart/presentation/screens/payment_details_screen.dart';
+import 'package:authtest/Feature/cart/presentation/screens/thank_you_screen.dart';
 import 'package:go_router/go_router.dart';
 
 abstract class AppRouter {
@@ -13,6 +14,7 @@ abstract class AppRouter {
   static const kSignScreen = '/signupscreen';
   static const kCartScreen = '/cartscreen';
   static const kPaymentDetailsScreen = '/paymentdetailsscreen';
+  static const kThankYouScreen = '/thankyouscreen';
   static final router = GoRouter(routes: [
     GoRoute(
       path: '/',
@@ -37,6 +39,10 @@ abstract class AppRouter {
     GoRoute(
       path: AppRouter.kPaymentDetailsScreen,
       builder: (context, state) => const PaymentDetailsScreen(),
+    ),
+    GoRoute(
+      path: AppRouter.kThankYouScreen,
+      builder: (context, state) => const ThankYouScreen(),
     ),
   ]);
 }

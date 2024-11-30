@@ -28,12 +28,12 @@ class _FormfieldState extends State<Formfield> {
         }
 
         if (state is AuthSuccess) {
-          BlocProvider.of<AuthCubit>(context).loginEmailController.clear();
-          BlocProvider.of<AuthCubit>(context).loginPasswordController.clear();
           GoRouter.of(context).push(AppRouter.kVerificationScreen);
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(content: Text("Code sent! Check your email.")),
           );
+          BlocProvider.of<AuthCubit>(context).loginEmailController.clear();
+          BlocProvider.of<AuthCubit>(context).loginPasswordController.clear();
         }
       },
       builder: (context, state) {

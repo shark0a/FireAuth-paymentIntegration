@@ -13,6 +13,7 @@ class QrCodeRow extends StatelessWidget {
       children: [
         Image.asset("lib/core/assets/images/qurcode_icon.png"),
         const CustomizeCheckoutButton(
+          isLoading: false,
           style: TextStyle(
             color: Color(0xFF34A853),
             fontSize: 24,
@@ -20,7 +21,7 @@ class QrCodeRow extends StatelessWidget {
             fontWeight: FontWeight.w600,
             height: 0,
           ),
-          hight: 58,
+          height: 58,
           width: 113,
           background: Colors.transparent,
           title: "paid ",
