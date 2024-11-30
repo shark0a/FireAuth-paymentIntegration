@@ -9,8 +9,8 @@ class PaymentLoading extends PaymentState {}
 
 class PaymentSuccess extends PaymentState {}
 
-class PaymentFaluire extends PaymentState {
+class PaymentFailure extends PaymentState {
   final String errMessage;
 
-  PaymentFaluire({required this.errMessage});
+  PaymentFailure({required this.errMessage});
 }

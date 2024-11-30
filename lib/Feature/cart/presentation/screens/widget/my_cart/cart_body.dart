@@ -63,7 +63,8 @@ class CartBody extends StatelessWidget {
             height: 15,
           ),
           CustomizeCheckoutButton(
-            hight: 73,
+            isLoading: false,
+            height: 73,
             background: const Color(0xff34A853),
             width: 350,
             title: "Complete Payment",
@@ -74,7 +75,7 @@ class CartBody extends StatelessWidget {
                 builder: (context) {
                   return BlocProvider(
                     create: (context) => PaymentCubit(CheckoutRepoImplement()),
-                    child: PyamentButtomSheetBody(),
+                    child: const PaymentBottomSheetBody(),
                   );
                 },
               );

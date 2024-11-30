@@ -56,8 +56,8 @@ class _CrediteCardFormState extends State<CrediteCardForm> {
           height: 30,
         ),
         CustomizeCheckoutButton(
-          
-          hight: 73,
+          isLoading: false,
+          height: 73,
           title: "Pay",
           onTap: () {
             if (formKey.currentState!.validate()) {
@@ -79,4 +79,3 @@ class _CrediteCardFormState extends State<CrediteCardForm> {
     );
   }
 }
- 

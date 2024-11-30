@@ -3,23 +3,15 @@ import 'package:authtest/Feature/cart/presentation/manger/payment_cubit.dart';
 import 'package:authtest/Feature/cart/presentation/screens/widget/customize_checkout_button.dart';
 import 'package:authtest/Feature/cart/presentation/screens/widget/payement_details/payment_methode.dart';
 import 'package:authtest/core/Routers/app_routers.dart';
-import 'package:authtest/core/errors/faliures.dart';
 import 'package:authtest/core/styles/font_styles.dart';
 import 'package:authtest/core/styles/fonts/font_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-class PyamentButtomSheetBody extends StatefulWidget {
-  const PyamentButtomSheetBody({super.key});
+class PaymentBottomSheetBody extends StatelessWidget {
+  const PaymentBottomSheetBody({super.key});
 
-  @override
-  State<PyamentButtomSheetBody> createState() => _PyamentButtomSheetBodyState();
-}
-
-bool isLoading = false;
-
-class _PyamentButtomSheetBodyState extends State<PyamentButtomSheetBody> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -38,30 +30,31 @@ class _PyamentButtomSheetBodyState extends State<PyamentButtomSheetBody> {
         BlocConsumer<PaymentCubit, PaymentState>(
           listener: (context, state) {
             if (state is PaymentLoading) {
-              isLoading = true;
+              // Display loading
             } else if (state is PaymentSuccess) {
-              isLoading = false;
               GoRouter.of(context).push(AppRouter.kThankYouScreen);
-            } else if (state is PaymentFaluire) {
+            } else if (state is PaymentFailure) {
               Navigator.of(context).pop();
               ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text(state.errMessage.toString())));
-              isLoading = false;
+                SnackBar(content: Text(state.errMessage.toString())),
+              );
             }
           },
           builder: (context, state) {
+            bool isLoading = state is PaymentLoading;
             return CustomizeCheckoutButton(
-                isLoading: isLoading = false,
-                onTap: () {
-                  BlocProvider.of<PaymentCubit>(context).paymentMethod(
-                    paymentIntinetInputModel: PaymentIntinetInputModel(
-                        amount: '100', currency: 'USD'),
-                  );
-                },
-                title: "Continue",
-                width: 200,
-                background: FontColors.checkOutButtonColor,
-                hight: 70);
+              isLoading: isLoading,
+              onTap: () {
+                BlocProvider.of<PaymentCubit>(context).paymentMethod(
+                  paymentIntinetInputModel:
+                      PaymentIntinetInputModel(amount: '100', currency: 'USD'),
+                );
+              },
+              title: "Continue",
+              width: 200,
+              background: FontColors.checkOutButtonColor,
+              height: 70,
+            );
           },
         ),
         const SizedBox(

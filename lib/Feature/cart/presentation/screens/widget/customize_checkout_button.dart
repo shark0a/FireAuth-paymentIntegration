@@ -1,4 +1,3 @@
-import 'package:authtest/core/styles/font_styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomizeCheckoutButton extends StatelessWidget {
@@ -6,38 +5,42 @@ class CustomizeCheckoutButton extends StatelessWidget {
     super.key,
     required this.title,
     this.onTap,
-    this.isLoading = false,
+    required this.isLoading,
     required this.width,
     required this.background,
-    required this.hight,
+    required this.height,
     this.style,
   });
-  final isLoading;
+
   final String title;
   final double width;
-  final double hight;
+  final double height;
   final Function()? onTap;
   final Color background;
+  final bool isLoading;
   final TextStyle? style;
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: onTap,
+      onTap: isLoading ? null : onTap,
       child: Container(
         width: width,
-        height: hight,
+        height: height,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            color: background,
-            border: const Border.fromBorderSide(
-                BorderSide(color: Color(0xff34A853)))),
+          borderRadius: BorderRadius.circular(15),
+          color: background,
+          border: const Border.fromBorderSide(
+            BorderSide(color: Color(0xff34A853)),
+          ),
+        ),
         child: Center(
           child: isLoading
               ? const CircularProgressIndicator()
               : Text(
                   title,
                   style: style ??
-                      FontStyles.titlestyle.copyWith(
+                    const  TextStyle(
                         fontSize: 22,
                         color: Colors.black,
                       ),
