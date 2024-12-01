@@ -1,9 +1,6 @@
 import 'dart:convert';
 
 import 'package:authtest/Feature/cart/data/models/PayPal_models/get_access_token.dart';
-import 'package:authtest/Feature/cart/data/models/PayPal_models/transactions_input_model/amount.dart';
-import 'package:authtest/Feature/cart/data/models/PayPal_models/transactions_input_model/details.dart';
-import 'package:authtest/Feature/cart/data/models/PayPal_models/transactions_input_model/item_list.dart';
 import 'package:authtest/Feature/cart/data/models/PayPal_models/transactions_input_model/transactions_input_model.dart';
 import 'package:authtest/core/utils/api_service.dart';
 
