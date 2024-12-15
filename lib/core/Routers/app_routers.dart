@@ -18,7 +18,7 @@ abstract class AppRouter {
   static final router = GoRouter(routes: [
     GoRoute(
       path: '/',
-      builder: (context, state) => const LoginScreen(),
+      builder: (context, state) => const CartScreen(),
     ),
     GoRoute(
       path: AppRouter.kVerificationScreen,

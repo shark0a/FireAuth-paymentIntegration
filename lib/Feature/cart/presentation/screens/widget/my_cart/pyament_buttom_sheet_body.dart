@@ -5,6 +5,7 @@ import 'package:authtest/Feature/cart/presentation/screens/widget/payement_detai
 import 'package:authtest/core/Routers/app_routers.dart';
 import 'package:authtest/core/styles/font_styles.dart';
 import 'package:authtest/core/styles/fonts/font_colors.dart';
+import 'package:authtest/core/utils/paypal_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -45,12 +46,13 @@ class PaymentBottomSheetBody extends StatelessWidget {
             return CustomizeCheckoutButton(
               isLoading: isLoading,
               onTap: () {
-                BlocProvider.of<PaymentCubit>(context).cardpaymentMethod(
-                  paymentIntinetInputModel: PaymentIntinetInputModel(
-                      'cus_RJapgVS0iBK60T',
-                      amount: '100',
-                      currency: 'USD'),
-                );
+                // BlocProvider.of<PaymentCubit>(context).cardpaymentMethod(
+                //   paymentIntinetInputModel: PaymentIntinetInputModel(
+                //       'cus_RJapgVS0iBK60T',
+                //       amount: '100',
+                //       currency: 'USD'),
+                // );
+                PaypalService().makepaypalPayment(context);
               },
               title: "Continue",
               width: 200,
