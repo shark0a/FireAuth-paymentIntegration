@@ -1,5 +1,5 @@
 import 'package:authtest/Feature/cart/data/models/ephemeral_key/ephemeral_key.dart';
-import 'package:authtest/Feature/cart/data/models/init_payment_input_model.dart';
+import 'package:authtest/Feature/cart/data/models/payment_intent_model/init_payment_input_model.dart';
 import 'package:authtest/Feature/cart/data/models/payment_intent_model/payment_intent_model.dart';
 import 'package:authtest/Feature/cart/data/models/payment_intinet_input_model.dart';
 import 'package:authtest/core/utils/api_service.dart';

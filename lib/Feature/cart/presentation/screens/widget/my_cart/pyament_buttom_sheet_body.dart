@@ -45,7 +45,7 @@ class PaymentBottomSheetBody extends StatelessWidget {
             return CustomizeCheckoutButton(
               isLoading: isLoading,
               onTap: () {
-                BlocProvider.of<PaymentCubit>(context).paymentMethod(
+                BlocProvider.of<PaymentCubit>(context).cardpaymentMethod(
                   paymentIntinetInputModel: PaymentIntinetInputModel(
                       'cus_RJapgVS0iBK60T',
                       amount: '100',
