@@ -1,3 +1,4 @@
+import 'package:authtest/Feature/cart/data/models/payment_intinet_input_model.dart';
 import 'package:authtest/Feature/cart/presentation/manger/payment_cubit.dart';
 import 'package:authtest/Feature/cart/presentation/screens/widget/customize_checkout_button.dart';
 import 'package:authtest/Feature/cart/presentation/screens/widget/payement_details/payment_methode.dart';
@@ -44,12 +45,12 @@ class PaymentBottomSheetBody extends StatelessWidget {
             return CustomizeCheckoutButton(
               isLoading: isLoading,
               onTap: () {
-                // BlocProvider.of<PaymentCubit>(context).cardpaymentMethod(
-                //   paymentIntinetInputModel: PaymentIntinetInputModel(
-                //       'cus_RJapgVS0iBK60T',
-                //       amount: '100',
-                //       currency: 'USD'),
-                // );
+                BlocProvider.of<PaymentCubit>(context).cardpaymentMethod(
+                  paymentIntinetInputModel: PaymentIntinetInputModel(
+                      'cus_RJapgVS0iBK60T',
+                      amount: '100',
+                      currency: 'USD'),
+                );
               },
               title: "Continue",
               width: 200,

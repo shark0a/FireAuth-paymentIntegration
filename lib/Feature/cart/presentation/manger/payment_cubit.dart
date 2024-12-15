@@ -10,7 +10,7 @@ part 'payment_state.dart';
 class PaymentCubit extends Cubit<PaymentState> {
   PaymentCubit(this._checkoutRepo) : super(PaymentInitial());
   final CheckoutRepo _checkoutRepo;
-  Future paymentMethod({
+  Future cardpaymentMethod({
     required PaymentIntinetInputModel paymentIntinetInputModel,
   }) async {
     emit(PaymentLoading());
