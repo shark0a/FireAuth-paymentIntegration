@@ -75,7 +75,7 @@ class CartBody extends StatelessWidget {
                 builder: (context) {
                   return BlocProvider(
                     create: (context) => PaymentCubit(CheckoutRepoImplement()),
-                    child: const PaymentBottomSheetBody(),
+                    child:  PaymentBottomSheetBody(),
                   );
                 },
               );
