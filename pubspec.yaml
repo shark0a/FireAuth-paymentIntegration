@@ -19,6 +19,7 @@ dependencies:
   flutter_credit_card: ^3.0.0
   flutter_getit: ^3.0.1
   flutter_stripe: ^11.2.0
+  flutter_paypal_payment: ^1.0.7
   flutter_verification_code: ^1.1.7
   font_awesome_flutter: ^10.7.0
   get_it: ^7.7.0
